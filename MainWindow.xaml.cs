@@ -23,6 +23,25 @@ namespace Poprigun_DE
         public MainWindow()
         {
             InitializeComponent();
+            MF = MainFrame;
+            MainFrame.Navigate(new List());
+        }
+        public static Frame MF;
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            MF.GoBack();
+        }
+        private void MFContentRendered(object sender, EventArgs e)
+        {
+            if (MF.CanGoBack)
+            {
+                BtnBack.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                BtnBack.Visibility = Visibility.Hidden;
+            }
+
         }
     }
 }

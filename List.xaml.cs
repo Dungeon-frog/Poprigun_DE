@@ -23,6 +23,17 @@ namespace Poprigun_DE
         public List()
         {
             InitializeComponent();
+            var agents = BDEntities.GetContext().agents.ToList();
+            foreach(var a in agents)
+            {
+                a.Logo = "Resources" + a.Logo;
+            }
+            ListAgent.ItemsSource = agents;
+        }
+
+        private void BtnLog(object sender, RoutedEventArgs e)
+        {
+            MainWindow.MF.Navigate(new Login());
         }
     }
 }

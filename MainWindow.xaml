@@ -5,15 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Poprigun_DE"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Icon="Resources/Попрыженок.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid Background="#F9969E"/>
+        <Grid Background="#F9969E">
+            <Button x:Name="BtnBack" Content="Назад" Style="{StaticResource MainBtn}"  HorizontalAlignment="Left" Margin="709,14,0,0" VerticalAlignment="Top" Width="75" Height="35" Click="BtnBack_Click"/>
+        </Grid>
         <Image Source="Resources/Попрыженок.png" HorizontalAlignment="Left"/>
-        <TextBlock  Text="Poprigun" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
-        <Frame Grid.Row="1"/>
+        <TextBlock  Text="Попрыгунчик" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+        <Frame Grid.Row="1" Name="MainFrame" ContentRendered="MFContentRendered" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
