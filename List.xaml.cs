@@ -23,17 +23,24 @@ namespace Poprigun_DE
         public List()
         {
             InitializeComponent();
-            var agents = BDEntities.GetContext().agents.ToList();
-            foreach(var a in agents)
-            {
-                a.Logo = "Resources" + a.Logo;
-            }
-            ListAgent.ItemsSource = agents;
+            UpdataData();
         }
 
         private void BtnLog(object sender, RoutedEventArgs e)
         {
             MainWindow.MF.Navigate(new Login());
+        }
+
+        private void UpdataData ()
+        {
+            var AgentAmount = BDEntities.GetContext().agents.ToList();
+            foreach (var AA in AgentAmount)
+            {
+                AA.Logo = "Resources" + AA.Logo;
+                var AllAgentAmount = AA.ProductSale.Select(a => a.Amount);
+                AA.Amount = (int)AllAgentAmount.Sum();
+            }
+            ListAgent.ItemsSource = AgentAmount;
         }
     }
 }
