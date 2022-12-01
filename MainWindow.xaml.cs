@@ -25,7 +25,15 @@ namespace Poprigun_DE
             InitializeComponent();
             MF = MainFrame;
             MainFrame.Navigate(new List());
+            this.Loaded += MainWindow_Loaded;
         }
+
+        void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.MinWidth = this.Width;
+            this.MinHeight = 800;
+        }
+    
         public static Frame MF;
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
