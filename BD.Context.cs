@@ -17,20 +17,18 @@ namespace Poprigun_DE
     
     public partial class BDEntities : DbContext
     {
-        private static BDEntities context;
-
-        public static BDEntities GetContext()
-        {
-            if (context == null)
-            {
-                context = new BDEntities();
-            }
-            return context;
-        }
-
         public BDEntities()
             : base("name=BDEntities")
         {
+        }
+
+        private static BDEntities context;
+
+        public static BDEntities GetContext() 
+        {
+            if (context == null)
+                context = new BDEntities();
+            return context;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -31,7 +31,7 @@ namespace Poprigun_DE
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             this.MinWidth = this.Width;
-            this.MinHeight = 800;
+            this.MinHeight = 400;
         }
     
         public static Frame MF;

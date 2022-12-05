@@ -8,7 +8,15 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Login">
 
-    <Grid>
+    <Grid Margin="50">
+        <StackPanel>
+            
+            <TextBox x:Name="LoginStr" HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="170" TextChanged="TextBox_TextChanged"/>
+            <TextBox x:Name="PasswordStr" HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="170"/>
+            <TextBlock FontSize="20" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="30" Text="Пароль"/>
+            <TextBlock FontSize="20" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Width="140"><Run Text="Логин"/><LineBreak/></TextBlock>
+            <Button FontSize="20" Content="Войти" Style="{StaticResource MainBtn}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="90" />
+        </StackPanel>
         
     </Grid>
 </Page>

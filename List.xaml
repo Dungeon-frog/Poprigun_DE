@@ -13,26 +13,37 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button Content="Log" Style="{StaticResource MainBtn}" HorizontalAlignment="Right" Margin="706,-24,-1,0" VerticalAlignment="Top" Width="75" Click="BtnLog"/>
+        <Button Content="Войти" Style="{StaticResource MainBtn}" HorizontalAlignment="Right" Margin="706,-24,-1,0" VerticalAlignment="Top" Width="75" Click="BtnLog"/>
         <ListView Grid.Row="1" Name="ListAgent">
             <ListView.ItemTemplate>
         <DataTemplate>
         <Grid Margin="0 5 0 0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Image Source="{Binding Path=Logo}" HorizontalAlignment="Left" Stretch="UniformToFill" Width="100" Height="100" />
-            <StackPanel Orientation="Horizontal" Margin="200 0 5 5">
-                <TextBlock Text="{Binding Type_agent.Type_name}" VerticalAlignment="Top" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0" FontSize="26"  Grid.Row="0"/>
-                <TextBlock Text="{Binding Name}" Margin="0" TextAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="26" Grid.Row="0"/>
-            </StackPanel>
-            <TextBlock Text="{Binding Amount}" FontSize="20" Margin="200,40,0,30" Grid.RowSpan="2"/>
-            <TextBlock Text="{Binding Phone}" FontSize="20" Margin="200,65,198,15" Grid.RowSpan="2"/>
-            <TextBlock Text="{Binding Priority}" FontSize="20" Margin="320,90,220,15" Grid.RowSpan="2"/>
-            <TextBlock Text="Проиоритет:" FontSize="20" Margin="200,90,220,15" Grid.RowSpan="2" />
+                        <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="400"/>
+                        <ColumnDefinition Width="150"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="{Binding Path=Logo}" HorizontalAlignment="Left" Grid.Column="0" Stretch="UniformToFill" Width="100" Height="100" />
+            <StackPanel Grid.Column="1">
+                        <TextBlock FontSize="24">
+                                <Run Text="{Binding Type_agent.Type_name}"/>
+                                <Run Text="|"/>
+                                <Run Text="{Binding Name}"/>
+                         </TextBlock>
+                            <TextBlock FontSize="20">
+                                <Run Text="{Binding Amount}"/>
+                                <Run Text="продаж за год"/>
+                            </TextBlock>
+                            <TextBlock Text="{Binding Phone}" FontSize="20" />
+                            <TextBlock FontSize="20">
+                                <Run Text="Проиоритет:"/>
+                                <Run Text="{Binding Priority}"/>        
+                            </TextBlock>
+                            
+                        </StackPanel>
+                        <Button  Content="Редактирование" HorizontalAlignment="Right" Grid.Column="2" VerticalAlignment="Bottom"/>
+                       
+            
 
         </Grid>
         </DataTemplate>
